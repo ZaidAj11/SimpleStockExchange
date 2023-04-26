@@ -9,6 +9,7 @@ import java.util.Scanner;
 public class ClientTrader {
     private static final String SERVER_HOST = "localhost";
     private static final int SERVER_PORT = 80;
+    private static int myID = Integer.MAX_VALUE;
 
     public static void main(String[] args) {
         try {
@@ -18,6 +19,10 @@ public class ClientTrader {
             ObjectInputStream in = new ObjectInputStream(socket.getInputStream());
             ObjectOutputStream out = new ObjectOutputStream(socket.getOutputStream());
             Scanner scanner = new Scanner(System.in);
+            myID = in.read();
+            System.out.println("Received client ID from server: Client #" + myID);
+            
+
 
             while (true) {
                 System.out.print("Enter an order in the form <Side> <Price> <Size>: ");

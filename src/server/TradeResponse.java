@@ -22,7 +22,7 @@ public class TradeResponse {
 	public String toString() {
 		String out = "";
 		if(IsTraded) {
-			out += TradeSide == Side.Buy ? "Bought" : "Sold";
+			out += TradeSide == Side.Buy ? "Bought " : "Sold ";
 			out += LotsTraded + " lots @ " + TradePrice;
 		}
 		else {

@@ -13,6 +13,7 @@ public class ServerMatchingEngine {
     private static final int THREAD_POOL_SIZE = 10;
     private static ExecutorService executor = Executors.newFixedThreadPool(THREAD_POOL_SIZE);
     private static MatchingEngine _matchingEngine = new MatchingEngine();
+    private static int idCounter = 0;
     public static void main(String[] args) {
         try {
             ServerSocket serverSocket = new ServerSocket(PORT);
@@ -43,7 +44,10 @@ public class ServerMatchingEngine {
                 ObjectOutputStream out = new ObjectOutputStream(socket.getOutputStream());
             	ObjectInputStream in = new ObjectInputStream(socket.getInputStream());
 
-
+            	out.write(idCounter); // give id to client
+            	out.flush();
+            	idCounter ++;
+            	
                 while (true) {
                     String order = (String)in.readObject();
 
