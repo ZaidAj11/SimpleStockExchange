@@ -42,13 +42,13 @@ public class MatchingEngine {
 				else if (buy.Size > sell.Size) {
 					buy.Size -= sell.Size;
 					_sellOrderBook.remove(i);
-					i--;
+					i++;
 				}
 				else {
 					buy.Size = 0; 
 					sell.Size = 0;
 					_sellOrderBook.remove(i);
-					i--;
+					i++;
 					return;
 				}
 			}
@@ -68,13 +68,13 @@ public class MatchingEngine {
 				else if (sell.Size > buy.Size) {
 					sell.Size -= buy.Size;
 					_buyOrderBook.remove(i);
-					i--;
+					i++;
 				}
 				else {
 					buy.Size = 0; 
 					sell.Size = 0;
 					_buyOrderBook.remove(i);
-					i--;
+					i++;
 					return;
 				}
 			}
